@@ -1,134 +1,555 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planned Planthood</title>
+    <meta name="description" content="Lär dig om växer och hur dom odlas" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.svg" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="content-grid">
+    <a href="#main" class="skip-link">Hoppa till innehållet</a>
+    <header class="header fullwidth">
+      <div class="header-container">
+        <a class="header-logo" href="#">
+          <img src="/assets/images/logo.svg" alt="" aria-hidden="true" />
+          <span>Planned Planthood</span>
+        </a>
+        <nav>
+          <ul class="header-nav-list">
+            <li><a href="#" class="header-nav-link">Hem</a></li>
+            <li><a href="#" class="header-nav-link">Historik</a></li>
+            <li><a href="#" class="header-nav-link">Tips</a></li>
+            <li><a href="#" class="header-nav-link">Kontakt</a></li>
+          </ul>
+        </nav>
+        <a href="#" class="header-nav-link header-menu">Meny</a>
+      </div>
+    </header>
 
-    Planned Planthood
-    Meny
-    Hem
-    Historik
-    Tips
-    Kontakt
+    <main class="fullwidth content-grid" id="main" tabindex="-1">
+      <section class="appreciated-plants flow">
+        <header>
+          <h1>Våra uppskattade växter</h1>
+        </header>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+          ex vero harum recusandae et, nemo ea, non fugit sapiente sit dolore
+          autem! Expedita illo deleniti maiores harum consequatur debitis hic.
+        </p>
+        <div class="appreciated-plants-gallery border-shadow">
+          <img src="https://picsum.photos/id/25/5000/3333" alt="" />
+          <img src="https://picsum.photos/id/360/1925/1280" alt="" />
+          <img src="https://picsum.photos/id/305/4928/3264" alt="" />
+          <img src="https://picsum.photos/id/106/2592/1728" alt="" />
+          <img src="https://picsum.photos/id/239/1739/1391" alt="" />
+          <img src="https://picsum.photos/id/82/1500/997" alt="" />
+        </div>
+      </section>
 
-    Våra uppskattade växter
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ex vero harum recusandae et, nemo ea, non fugit sapiente sit dolore autem! Expedita illo deleniti maiores harum consequatur debitis hic.
+      <section class="newsletter fullwidth">
+        <div class="newsletter-container">
+          <form class="newsletter-form flow" action="/subscribe" method="POST">
+            <label for="email"
+              >Anmäl dig till vårt nyhetsbrev så du inte missar en
+              utsådd!</label
+            >
+            <fieldset class="form-controller">
+              <input
+                id="email"
+                type="email"
+                name="newsletter"
+                placeholder="Din e-postadress"
+                aria-autocomplete="inline"
+                minlength="5"
+              />
+              <button type="submit" class="button">Skicka</button>
+            </fieldset>
+          </form>
+          <div class="planting-icon">
+            <img src="/assets/images/icon-planting.svg" alt="" />
+          </div>
+        </div>
+      </section>
 
-    Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!
-    Skicka
+      <section class="our-plants flow">
+        <h2>Alla våra växter</h2>
+        <div class="our-plants-cards-grid">
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure>
+                <div class="our-plants-image-container">
+                  <img
+                    class="our-plants-image"
+                    src="/assets/images/lily-bui-thi-UbITmwq7CYY-unsplash.jpg"
+                    alt="Två gurkor"
+                  />
+                  <img
+                    class="our-plants-watermark"
+                    src="/assets/images/icon-watermark.svg"
+                    alt=""
+                  />
+                </div>
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-flower">Blommor</li>
+                <li class="bg-clr-editable">Ätbart</li>
+                <li class="bg-clr-green">Grönska</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Gurka</h3></header>
+                <p>
+                  Gurka växer snabbt, är enkel att odla och ger mängder med
+                  gurkor, bara man är noga med vattning, omplantering, duschning
+                  och gödsling
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Coolio</div>
+                    <time>2024-04-01</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Alla våra växter
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/bonnie-kittle-jcCJCQWNNmA-unsplash.jpg"
+                  alt="Några tomater"
+                />
+                <img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-sunloving">Solälskande</li>
+                <li class="bg-clr-easy">Lättodlat</li>
+                <li class="bg-clr-editable">Ätbart</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Tomat</h3></header>
+                <p>
+                  En perfekt grönsak att odla på balkongen eller i trädgården.
+                  Ger riklig skörd under sommaren.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Anna Odlare</div>
+                    <time>2024-12-05</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Gurka
-    Blommor
-    Ätbart
-    Grönska
-    Gurka växer snabbt, är enkel att odla och ger mängder med gurkor, bara man är noga med vattning,
-    omplantering,
-    duschning och gödsling.
-    Coolio
-    2024-04-01
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/sushanta-rokka-mZAFJ4WBFAM-unsplash.jpg"
+                  alt="En pelargon"
+                />
+                <img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-decorative">Dekorativ</li>
+                <li class="bg-clr-colorful">Färgstark</li>
+                <li class="bg-clr-robust">Tålig</li>
+                <li class="bg-clr-flower">Blommor</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Pelargon</h3></header>
+                <p>
+                  En vacker och lättskött blomma som trivs både inne och ute
+                  under sommaren.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Blomsterkalle</div>
+                    <time>2024-12-03</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Tomat
-    Solälskande
-    Lättodlat
-    Ätbart
-    En perfekt grönsak att odla på balkongen eller i trädgården. Ger riklig skörd under sommaren.
-    Anna Odlare
-    2024-12-05
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/max-griss-5tgjdEB9hYg-unsplash.jpg"
+                  alt="Lite basilika"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-decorative">Dekorativ</li>
+                <li class="bg-clr-colorful">Färgstark</li>
+                <li class="bg-clr-robust">Tålig</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Basilika</h3></header>
+                <p>
+                  En fantastisk krydda för pastarätter och sallader. Trivs bäst
+                  i ett soligt fönster.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Krydd-Malin</div>
+                    <time>2024-12-07</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Pelargon
-    Dekorativ
-    Färgstark
-    Tålig
-    Blommor
-    En vacker och lättskött blomma som trivs både inne och ute under sommaren.
-    Blomsterkalle
-    2024-12-03
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/chandan-chaurasia-dMBM75r1pSM-unsplash.jpg"
+                  alt="Några Salladsblad"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-fast">Snabbväxande</li>
+                <li class="bg-clr-editable">Ätbart</li>
+                <li class="bg-clr-green">Grönska</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Sallad</h3></header>
+                <p>
+                  Sallad är en av de enklaste grönsakerna att odla och ger
+                  snabba resultat för färska måltider.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Grönis</div>
+                    <time>2024-12-06</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Basilika
-    Dekorativ
-    Färgstark
-    Tålig
-    En fantastisk krydda för pastarätter och sallader. Trivs bäst i ett soligt fönster.
-    Krydd-Malin
-    2024-12-07
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/peter-burdon-3oOwWETs378-unsplash.jpg"
+                  alt="Massa ormbunkar"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-air">Luftfuktande</li>
+                <li class="bg-clr-green">Grönska</li>
+                <li class="bg-clr-decorative">Dekorativ</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Ormbunke</h3></header>
+                <p>
+                  En klassisk växt som passar perfekt i badrummet eller på
+                  skuggiga platser.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Naturvännen</div>
+                    <time>2024-12-08</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Sallad
-    Snabbväxande
-    Ätbart
-    Grönska
-    Sallad är en av de enklaste grönsakerna att odla och ger snabba resultat för färska måltider.
-    Grönis
-    2024-12-06
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/lily-bui-thi-UbITmwq7CYY-unsplash.jpg"
+                  alt="Två gurkor"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-flower">Blommor</li>
+                <li class="bg-clr-editable">Ätbart</li>
+                <li class="bg-clr-green">Grönska</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Gurka</h3></header>
+                <p>
+                  Gurka växer snabbt, är enkel att odla och ger mängder med
+                  gurkor, bara man är noga med vattning, omplantering, duschning
+                  och gödsling
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Coolio</div>
+                    <time>2024-04-01</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Ormbunke
-    Luftfuktande
-    Grönska
-    Dekorativ
-    En klassisk växt som passar perfekt i badrummet eller på skuggiga platser.
-    Naturvännen
-    2024-12-08
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/bonnie-kittle-jcCJCQWNNmA-unsplash.jpg"
+                  alt="Några tomater"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-sunloving">Solälskande</li>
+                <li class="bg-clr-easy">Lättodlat</li>
+                <li class="bg-clr-editable">Ätbart</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Tomat</h3></header>
+                <p>
+                  En perfekt grönsak att odla på balkongen eller i trädgården.
+                  Ger riklig skörd under sommaren.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Anna Odlare</div>
+                    <time>2024-12-05</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Gurka
-    Blommor
-    Ätbart
-    Grönska
-    Gurka växer snabbt, är enkel att odla och ger mängder med gurkor, bara man är noga med vattning,
-    omplantering,
-    duschning och gödsling.
-    Coolio
-    2024-04-01
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/sushanta-rokka-mZAFJ4WBFAM-unsplash.jpg"
+                  alt="En pelargon"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-decorative">Dekorativ</li>
+                <li class="bg-clr-colorful">Färgstark</li>
+                <li class="bg-clr-robust">Tålig</li>
+                <li class="bg-clr-flower">Blommor</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Pelargon</h3></header>
+                <p>
+                  En vacker och lättskött blomma som trivs både inne och ute
+                  under sommaren.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Blomsterkalle</div>
+                    <time>2024-12-03</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Tomat
-    Solälskande
-    Lättodlat
-    Ätbart
-    En perfekt grönsak att odla på balkongen eller i trädgården. Ger riklig skörd under sommaren.
-    Anna Odlare
-    2024-12-05
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/max-griss-5tgjdEB9hYg-unsplash.jpg"
+                  alt="Lite basilika"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-decorative">Dekorativ</li>
+                <li class="bg-clr-colorful">Färgstark</li>
+                <li class="bg-clr-robust">Tålig</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Basilika</h3></header>
+                <p>
+                  En fantastisk krydda för pastarätter och sallader. Trivs bäst
+                  i ett soligt fönster.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Krydd-Malin</div>
+                    <time>2024-12-07</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Pelargon
-    Dekorativ
-    Färgstark
-    Tålig
-    Blommor
-    En vacker och lättskött blomma som trivs både inne och ute under sommaren.
-    Blomsterkalle
-    2024-12-03
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/chandan-chaurasia-dMBM75r1pSM-unsplash.jpg"
+                  alt="Några salladsblad"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-fast">Snabbväxande</li>
+                <li class="bg-clr-editable">Ätbart</li>
+                <li class="bg-clr-green">Grönska</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Sallad</h3></header>
+                <p>
+                  Sallad är en av de enklaste grönsakerna att odla och ger
+                  snabba resultat för färska måltider.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Grönis</div>
+                    <time>2024-12-06</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
 
-    Basilika
-    Dekorativ
-    Färgstark
-    Tålig
-    En fantastisk krydda för pastarätter och sallader. Trivs bäst i ett soligt fönster.
-    Krydd-Malin
-    2024-12-07
+          <article>
+            <a class="our-plants-card" href="#">
+              <figure class="our-plants-image-container">
+                <img
+                  class="our-plants-image"
+                  src="/assets/images/peter-burdon-3oOwWETs378-unsplash.jpg"
+                  alt="En massa ormbunkar"
+                /><img
+                  class="our-plants-watermark"
+                  src="/assets/images/icon-watermark.svg"
+                  alt=""
+                />
+              </figure>
+              <ul class="our-plants-card-tags">
+                <li class="bg-clr-air">Luftfuktande</li>
+                <li class="bg-clr-green">Grönska</li>
+                <li class="bg-clr-decorative">Dekorativ</li>
+              </ul>
+              <div class="our-plants-card-content">
+                <header><h3>Ormbunke</h3></header>
+                <p>
+                  En klassisk växt som passar perfekt i badrummet eller på
+                  skuggiga platser.
+                </p>
+                <footer class="our-plants-card-meta">
+                  <img src="/assets/images/icon-avatar.svg" alt="" />
+                  <div>
+                    <div>Naturvännen</div>
+                    <time>2024-12-08</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
 
-    Sallad
-    Snabbväxande
-    Ätbart
-    Grönska
-    Sallad är en av de enklaste grönsakerna att odla och ger snabba resultat för färska måltider.
-    Grönis
-    2024-12-06
+      <section class="planted-plants fullwidth">
+        <div class="planted-plants-container">
+          <div class="planting-icon">
+            <img src="/assets/images/icon-planting.svg" alt="" />
+          </div>
+          <div class="planted-plants-content flow">
+            <h2>Våra tidigare odlingar</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Aspernatur ratione quia eos pariatur deserunt veritatis. Tenetur,
+              ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum,
+              dolor distinctio nam quaerat doloribus?
+            </p>
+            <button class="button">Planterade plantor</button>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    Ormbunke
-    Luftfuktande
-    Grönska
-    Dekorativ
-    En klassisk växt som passar perfekt i badrummet eller på skuggiga platser.
-    Naturvännen
-    2024-12-08
-
-    Våra tidigare odlingar
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt veritatis. Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
-
-    Planterade plantor
-
-    Om oss
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, veniam ducimus aut sint atque ullam alias perspiciatis fuga. Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione earum. Iure, eius molestias?
-
-    Telefon: 020-1234567
-    E-post: info@plannedplant.com
-
-    Hem
-    Historik
-    Tips
-    Kontakt
- 
+    <footer class="footer fullwidth">
+      <div class="footer-container">
+        <section class="flow">
+          <h2 class="fw-bold">Om oss</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque,
+            veniam ducimus aut sint atque ullam alias perspiciatis fuga.
+            Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione
+            earum. Iure, eius molestias?
+          </p>
+          <address class="fw-bold">
+            <a href="#">Telefon: 020-1234567</a>
+            <a href="#">E-post: info@plannedplant.com</a>
+          </address>
+        </section>
+        <nav>
+          <ul class="footer-nav-list">
+            <li><a href="#">Hem</a></li>
+            <li><a href="#">Historik</a></li>
+            <li><a href="#">Tips</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

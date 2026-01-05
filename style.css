@@ -1,4 +1,10 @@
-/*** Reset ***/
+/* ============================
+ 1. Fonts / @font-face    
+============================ */
+
+/* ============================
+ 2. RESET / NORMALIZE
+============================ */
 /* This is from Kevin Powell, edit to your liking */
 
 /* makes sizing simpler */
@@ -53,19 +59,22 @@ figcaption {
 }
 
 /* for container queries, landmarks as containers */
-body> :is(header, footer),
+body > :is(header, footer),
 main {
   container-type: inline-size;
 }
 
-/* remove list style but keep it as list for Safari browser - use with <ul role="list"> */
-[role="list"] {
+/* remove list style but keep it as list for Safari 
+browser - use with <ul role="list"> */
+[role='list'] {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/*** Theme ***/
+/* ============================
+ 3. TOKENS / VARIABLES
+============================ */
 
 :root {
   /* color definitions */
@@ -112,11 +121,8 @@ main {
   --fs-800: 2.5rem;
   --fs-900: 3rem;
 
-
-  /*** Theme setup ***/
-
   /* font family */
-  --font-base: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+  --font-base: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
 
   /* theme color assignments */
   --clr-accent: var(--clr-green-400);
@@ -140,13 +146,22 @@ main {
   --border-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
   /* Spacing */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
   --spacing-base: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
 
   --flow-space: 1.75em;
   --flow-space-lg: 4em;
 }
 
-/*** Global/base ***/
+/* ============================
+ 4. BASE / GLOBAL STYLES
+============================ */
+
 h1,
 h2,
 h3 {
@@ -166,12 +181,21 @@ h3 {
 
 a {
   text-decoration: none;
-  color: var(--clr-accent);
+  color: var(--clr-neutral-100);
 
   &:hover,
   &:focus-visible {
     text-decoration: underline;
   }
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  line-height: 1.1;
+  cursor: pointer;
 }
 
 body {
@@ -180,13 +204,12 @@ body {
   color: var(--clr-primary-dark);
 }
 
-
 /*** Composition ***/
-.flow>*+* {
+.flow > * + * {
   margin-block-start: var(--flow-space);
 }
 
-.flow-lg>*+* {
+.flow-lg > * + * {
   margin-block-start: var(--flow-space-lg);
 }
 
@@ -201,30 +224,561 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   --_min-margin-width: 1rem;
 
   display: grid;
-  grid-template-columns: [fullwidth-start] minmax(var(--_min-margin-width), 1fr) [content-start] min(100% - var(--_min-margin-width) * 2,
-      var(--_content-width)) [content-end] minmax(var(--_min-margin-width), 1fr) [fullwidth-end];
+  grid-template-columns:
+    [fullwidth-start] minmax(var(--_min-margin-width), 1fr) [content-start] min(
+      100% - var(--_min-margin-width) * 2,
+      var(--_content-width)
+    )
+    [content-end] minmax(var(--_min-margin-width), 1fr) [fullwidth-end];
   /*  grid-template-rows: [fullwidth-start] auto [fullwidth-end];*/
 }
 
-/* keep the content of the content-grid and fullwidth inside the content container */
-.content-grid>*,
-.fullwidth>* {
+/* keep the content of the content-grid and fullwidth 
+inside the content container */
+.content-grid > *,
+.fullwidth > * {
   grid-column: content;
 }
 
 /* a bit more complex but more fancy/explicit version of above */
-/*.content-grid > :not(.fullwidth),
+/* .content-grid > :not(.fullwidth),
 .fullwidth > :not(.fullwidth) {
   grid-column: content;
-}*/
+} */
 
-/* if we have a fullwidth inside of a content-grid put this in the fullwidth container */
-.content-grid>.fullwidth {
+/* if we have a fullwidth inside of a content-grid 
+put this in the fullwidth container */
+.content-grid > .fullwidth {
   grid-column: fullwidth;
 }
 
+/* skip-link, thanks chatgpt */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--spacing-xs) var(--spacing-base);
+  background: var(--clr-primary-dark);
+  color: var(--clr-accent-light-1);
+  text-decoration: none;
+  transform: translateY(-100%);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
 
-/*** Utilities ***/
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ============================
+ 5. STRUCTURE / LAYOUT
+ =========================== */
+
+@scope (.header) {
+  background-color: var(--clr-primary-light-1);
+  text-transform: uppercase;
+  font-weight: var(--fw-semi-bold);
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-base);
+    padding: var(--spacing-xxs) var(--spacing-base);
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    span {
+      font-size: var(--fs-500);
+      line-height: 0.8;
+      letter-spacing: -0.1em;
+      width: 15ch;
+      color: var(--clr-accent);
+    }
+  }
+
+  .header-nav-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    list-style: none;
+
+    .header-nav-link {
+      display: inline-block;
+      padding: var(--spacing-base) var(--spacing-lg);
+      color: var(--clr-accent);
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+        background: var(--clr-accent);
+        color: var(--clr-accent-light-1);
+        height: 100%;
+      }
+    }
+  }
+
+  .header-menu {
+    color: var(--clr-accent);
+  }
+
+  /* Tablet & Desktop: 768px and up */
+  @media (width >= 768px) {
+    .header-menu {
+      display: none;
+    }
+  }
+
+  /* Mobile: 0px -> 768px */
+  @media (width < 768px) {
+    nav {
+      display: none;
+    }
+  }
+}
+
+@scope (.appreciated-plants) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-xxl) 0;
+
+  p {
+    max-width: 60ch;
+  }
+
+  .appreciated-plants-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: var(--spacing-sm);
+    background-color: var(--clr-primary-light-1);
+
+    img {
+      aspect-ratio: 1/1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* Tablet: 768px -> 1023px */
+  @media (768px <= width < 1024px) {
+    .appreciated-plants-gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Desktop: 1024px and up */
+  @media (width >= 1024px) {
+    .appreciated-plants-gallery {
+      grid-template-areas:
+        'a a b c d d'
+        'a a e e f f';
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, minmax(0, 17rem));
+
+      img:nth-child(1) {
+        grid-area: a;
+      }
+
+      img:nth-child(2) {
+        grid-area: b;
+      }
+
+      img:nth-child(3) {
+        grid-area: c;
+      }
+
+      img:nth-child(4) {
+        grid-area: d;
+      }
+
+      img:nth-child(5) {
+        grid-area: e;
+      }
+
+      img:nth-child(6) {
+        grid-area: f;
+      }
+    }
+  }
+}
+
+@scope (.newsletter) {
+  background-color: var(--clr-primary-light-1);
+  padding: var(--spacing-xxl) 0;
+
+  .newsletter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xxl);
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+
+    label {
+      font-size: var(--fs-700);
+      font-weight: var(--fw-bold);
+      line-height: 1.1;
+    }
+
+    fieldset {
+      display: flex;
+      margin-top: var(--spacing-base);
+      padding: 0.125rem;
+      border: 1px solid var(--clr-primary);
+      border-radius: 2rem;
+      gap: 0.5rem;
+    }
+
+    input {
+      font-size: var(--fs-400);
+      font-weight: var(--fw-semi-bold);
+      flex-grow: 1;
+      border: none;
+      background-color: transparent;
+      padding-inline-start: var(--spacing-base);
+      color: var(--clr-primary-dark);
+
+      &:focus {
+        border-color: var(--clr-primary-dark);
+        box-shadow: 0 0 0 3px var(--clr-primary);
+        border-radius: 24px;
+      }
+    }
+  }
+
+  /* Mobile: 0px -> 768px */
+  @media (width < 768px) {
+    .newsletter-form {
+      order: 1;
+      text-align: center;
+    }
+  }
+}
+
+@scope (.our-plants) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xxl) 0;
+
+  .our-plants-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .our-plants-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    box-shadow: var(--border-shadow);
+    background-color: var(--clr-primary-light-1);
+    color: var(--clr-primary);
+    height: 100%;
+    transition: transform 0.2s;
+
+    &:hover {
+      text-decoration: none;
+      transform: scale(1.05);
+    }
+  }
+
+  .our-plants-image-container {
+    display: grid;
+  }
+
+  .our-plants-image {
+    grid-area: 1/1;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: 60% 40%;
+    margin: 0;
+  }
+
+  .our-plants-watermark {
+    grid-area: 1/1;
+    width: 69px;
+    height: 90px;
+    align-self: center;
+    justify-self: center;
+    opacity: 30%;
+  }
+
+  .our-plants-card-content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-base);
+    gap: var(--spacing-base);
+    flex: 1;
+  }
+
+  p {
+    max-width: 40ch;
+  }
+
+  .our-plants-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--spacing-base) var(--spacing-base) 0rem;
+    gap: var(--spacing-xxs);
+    color: var(--clr-primary-light-1);
+    min-height: 70px;
+    align-items: baseline;
+
+    li {
+      list-style: none;
+      border-radius: 2rem;
+      font-size: var(--fs-200);
+      text-transform: uppercase;
+      font-weight: var(--fw-bold);
+      padding: var(--spacing-xxs) var(--spacing-xs);
+      text-decoration: none;
+    }
+  }
+
+  .our-plants-card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-base);
+    margin-top: auto;
+
+    img {
+      border: 1px solid var(--clr-accent);
+      border-radius: 2rem;
+      background: var(--clr-primary-light-2);
+      max-width: 50px;
+    }
+
+    div > div {
+      color: var(--clr-accent);
+      font-weight: var(--fw-semi-bold);
+      font-size: var(--fs-300);
+    }
+
+    time {
+      font-weight: var(--fw-semi-bold);
+      font-size: var(--fs-200);
+    }
+  }
+
+  /* Mobile: 0 -> 768px */
+  @media (width < 768px) {
+    div.our-plants-card-content {
+      padding: 0rem var(--spacing-base) var(--spacing-base);
+    }
+  }
+
+  /* Tablet: 768px -> 1023px */
+  @media (768px <= width < 1024px) {
+    .our-plants-cards-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* Desktop: 1024px and up */
+  @media (width >= 1024px) {
+    .our-plants-cards-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@scope (.planted-plants) {
+  background-color: var(--clr-primary-light-1);
+  padding: var(--spacing-xxl) 0;
+  margin-block-end: var(--spacing-xxl);
+
+  .planted-plants-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xxl);
+  }
+
+  .planted-plants-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 400px;
+  }
+
+  /* Tablet & Desktop: 768px and up */
+  @media (width >= 768px) {
+    .planted-plants-content {
+      align-items: start;
+      text-align: start;
+
+      button {
+        display: flex;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+@scope (.footer) {
+  background-color: var(--clr-accent);
+  color: var(--clr-primary-light-1);
+  padding: var(--spacing-xxl) 0;
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    max-width: 60ch;
+  }
+
+  address {
+    display: grid;
+    gap: var(--spacing-xs);
+    font-weight: var(--fw-bold);
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    :nth-child(1):hover::before {
+      content: '';
+      height: 1em;
+      width: 1em;
+      background-image: url('/assets/images/icon-phone.svg');
+    }
+
+    :nth-child(2):hover::before {
+      content: '';
+      height: 1em;
+      width: 1.2em;
+      background-image: url('/assets/images/icon-email.svg');
+    }
+  }
+
+  .footer-nav-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    margin-inline-end: var(--spacing-lg);
+    color: var(--clr-accent-light-1);
+    font-weight: var(--fw-medium);
+  }
+
+  /* Mobile: 0px -> 768px */
+  @media (width < 768px) {
+    .footer-nav-list {
+      display: none;
+    }
+  }
+}
+
+/* ============================
+ 6. COMPONENTS / MODULES
+============================ */
+
+.planting-icon {
+  display: grid;
+  place-items: center;
+  background-color: var(--clr-accent);
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+
+  img {
+    grid-area: 1/1;
+    height: 45%;
+  }
+}
+
+.button {
+  padding: var(--spacing-xs) var(--spacing-base);
+  background-color: var(--clr-accent);
+  color: var(--clr-accent-light-1);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-semi-bold);
+  border-radius: 2rem;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--clr-green-800);
+    cursor: pointer;
+  }
+}
+
+/* ============================
+ 7. UTILITIES / HELPERS
+============================ */
+
+.bg-clr-flower {
+  background-color: var(--clr-flower);
+}
+
+.bg-clr-editable {
+  background-color: var(--clr-edible);
+}
+
+.bg-clr-green {
+  background-color: var(--clr-green);
+}
+
+.bg-accent-light-1 {
+  background-color: var(--clr-accent-light-1);
+}
+
+.bg-clr-sunloving {
+  background-color: var(--clr-sunloving);
+}
+
+.bg-clr-easy {
+  background-color: var(--clr-easy);
+}
+
+.bg-clr-decorative {
+  background-color: var(--clr-decorative);
+}
+
+.bg-clr-colorful {
+  background-color: var(--clr-colorful);
+}
+
+.bg-clr-robust {
+  background-color: var(--clr-robust);
+}
+
+.bg-clr-fast {
+  background-color: var(--clr-fast);
+}
+
+.bg-clr-air {
+  background-color: var(--clr-air);
+}
+
+.border-shadow {
+  box-shadow: var(--border-shadow);
+}
 
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -235,3 +789,48 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   white-space: nowrap;
   width: 1px;
 }
+
+/* ============================
+ 8. RESPONSIVE / MEDIA QUERIES
+============================ */
+
+/* Desktop: 1024px and up */
+/* @media (width >= 1024px) {
+  .appreciated-plants-gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 300px));
+    padding: 0.85rem;
+    background-color: var(--clr-primary-light-1);
+
+    img:nth-child(1) {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+    }
+
+    img:nth-child(2) {
+      grid-column: 3 / span 1;
+      grid-row: 1 / span 1;
+    }
+
+    img:nth-child(3) {
+      grid-column: 4 / span 1;
+      grid-row: 1 / span 1;
+    }
+
+    img:nth-child(4) {
+      grid-column: 5 / span 2;
+      grid-row: 1 / span 1;
+    }
+
+    img:nth-child(5) {
+      grid-column: 3 / span 2;
+      grid-row: 2 / span 1;
+    }
+
+    img:nth-child(6) {
+      grid-column: 5 / span 2;
+      grid-row: 2 / span 1;
+    }
+  }
+} */
